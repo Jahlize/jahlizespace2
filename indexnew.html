@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <!-- =========================
+       META
+  ========================== -->
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>CONEXZION.CL | Reggae & Dancehall</title>
+
+  <meta
+    name="description"
+    content="Radio online Reggae & Dancehall 24/7"
+  >
+
+  <meta
+    name="theme-color"
+    content="#111827"
+  >
+
+  <!-- =========================
+       OPEN GRAPH
+  ========================== -->
+  <meta property="og:title" content="CONEXZION.CL">
+  <meta property="og:description" content="Reggae & Dancehall 24/7">
+  <meta property="og:image" content="https://conexzion.cl/assets/redes.png">
+  <meta property="og:type" content="website">
+
+  <!-- =========================
+       FAVICON
+  ========================== -->
+  <link
+    rel="icon"
+    href="https://xatimg.com/image/v6RoQlSSzJvE.jpg"
+  >
+
+  <!-- =========================
+       GOOGLE FONTS
+  ========================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================
+       REMIX ICONS
+  ========================== -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+  >
+
+  <!-- =========================
+       CSS
+  ========================== -->
+  <style>
+
+    /* =========================
+       ROOT
+    ========================== */
+    :root{
+
+      --primary:#22c55e;
+      --primary-2:#eab308;
+
+      --bg:#050816;
+      --bg2:#0f172a;
+      --bg3:#111827;
+      --card:#1e293b;
+
+      --text:#ffffff;
+      --text-soft:#cbd5e1;
+
+      --border:
+        rgba(255,255,255,.08);
+
+      --shadow:
+        0 15px 40px rgba(0,0,0,.4);
+
+      --radius:22px;
+
+      --transition:.35s ease;
+
+      --font-title:'Oswald', sans-serif;
+      --font-body:'Inter', sans-serif;
+
+      --player-height:85px;
+
+    }
+
+    /* =========================
+       RESET
+    ========================== */
+    *,
+    *::before,
+    *::after{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+
+      font-family:var(--font-body);
+
+      background:
+        linear-gradient(
+          180deg,
+          #050816 0%,
+          #08111f 100%
+        );
+
+      color:var(--text);
+
+      overflow-x:hidden;
+
+      line-height:1.6;
+
+      padding-bottom:
+        calc(var(--player-height) + 25px);
+
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    button{
+      border:none;
+      background:none;
+      font-family:inherit;
+      cursor:pointer;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    .container{
+      width:min(1200px, calc(100% - 40px));
+      margin:auto;
+    }
+
+    /* =========================
+       BACKGROUND EFFECTS
+    ========================== */
+    body::before{
+
+      content:'';
+
+      position:fixed;
+      inset:0;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(34,197,94,.15),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(234,179,8,.12),
+          transparent 30%
+        );
+
+      pointer-events:none;
+
+      z-index:-1;
+
+    }
+
+    /* =========================
+       SCROLLBAR
+    ========================== */
+    ::-webkit-scrollbar{
+      width:7px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      border-radius:999px;
+
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+    .navbar{
+
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+
+      z-index:1000;
+
+      background:
+        rgba(5,8,22,.75);
+
+      backdrop-filter:blur(14px);
+
+      border-bottom:
+        1px solid var(--border);
+
+    }
+
+    .navbar-inner{
+
+      height:76px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+    }
+
+    .logo{
+
+      display:flex;
+      align-items:center;
+      gap:14px;
+
+    }
+
+    .logo img{
+
+      width:52px;
+      height:52px;
+
+      border-radius:50%;
+
+      border:
+        2px solid var(--primary);
+
+      object-fit:cover;
+
+      box-shadow:
+        0 0 20px rgba(34,197,94,.35);
+
+    }
+
+    .logo span{
+
+      font-family:var(--font-title);
+
+      font-size:1.5rem;
+      font-weight:700;
+
+      letter-spacing:1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+    }
+
+    .menu{
+
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+    }
+
+    .menu a{
+
+      padding:12px 18px;
+
+      border-radius:12px;
+
+      font-size:.88rem;
+      font-weight:700;
+
+      text-transform:uppercase;
+
+      color:var(--text-soft);
+
+      transition:var(--transition);
+
+    }
+
+    .menu a:hover,
+    .menu a.active{
+
+      background:
+        rgba(34,197,94,.1);
+
+      color:var(--primary);
+
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+    .hero{
+
+      min-height:100vh;
+
+      display:grid;
+      place-items:center;
+
+      position:relative;
+
+      overflow:hidden;
+
+    }
+
+    .hero::before{
+
+      content:'';
+
+      position:absolute;
+      inset:0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.2),
+          rgba(0,0,0,.6)
+        );
+
+    }
+
+    .hero-content{
+
+      position:relative;
+      z-index:2;
+
+      text-align:center;
+
+    }
+
+    .hero-cover{
+
+      width:270px;
+      height:270px;
+
+      border-radius:50%;
+
+      object-fit:cover;
+
+      margin:auto;
+
+      border:
+        5px solid rgba(255,255,255,.08);
+
+      box-shadow:
+        0 0 60px rgba(34,197,94,.35);
+
+      animation:
+        spin 18s linear infinite;
+
+    }
+
+    @keyframes spin{
+
+      from{
+        transform:rotate(0deg);
+      }
+
+      to{
+        transform:rotate(360deg);
+      }
+
+    }
+
+    .hero-title{
+
+      font-family:var(--font-title);
+
+      font-size:
+        clamp(3rem, 8vw, 6rem);
+
+      text-transform:uppercase;
+
+      line-height:1;
+
+      margin-top:35px;
+
+    }
+
+    .hero-title span{
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+    }
+
+    .hero-subtitle{
+
+      margin-top:16px;
+
+      color:var(--text-soft);
+
+      font-size:1rem;
+
+      letter-spacing:4px;
+
+    }
+
+    .hero-buttons{
+
+      display:flex;
+      justify-content:center;
+      gap:15px;
+
+      flex-wrap:wrap;
+
+      margin-top:40px;
+
+    }
+
+    .btn{
+
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+
+      padding:
+        15px 30px;
+
+      border-radius:999px;
+
+      font-weight:700;
+
+      transition:var(--transition);
+
+      font-size:.95rem;
+
+    }
+
+    .btn-primary{
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color:#000;
+
+      box-shadow:
+        0 10px 30px rgba(34,197,94,.25);
+
+    }
+
+    .btn-primary:hover{
+
+      transform:
+        translateY(-4px);
+
+    }
+
+    .btn-outline{
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
+      background:
+        rgba(255,255,255,.03);
+
+      color:var(--text);
+
+    }
+
+    .btn-outline:hover{
+
+      border-color:var(--primary);
+
+      color:var(--primary);
+
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+    .section{
+      padding:100px 0;
+    }
+
+    .section-header{
+
+      text-align:center;
+
+      margin-bottom:55px;
+
+    }
+
+    .section-label{
+
+      color:var(--primary);
+
+      text-transform:uppercase;
+
+      letter-spacing:4px;
+
+      font-size:.82rem;
+      font-weight:700;
+
+    }
+
+    .section-title{
+
+      font-family:var(--font-title);
+
+      font-size:
+        clamp(2rem, 5vw, 3.2rem);
+
+      margin-top:12px;
+
+      text-transform:uppercase;
+
+    }
+
+    .section-title span{
+
+      color:var(--primary-2);
+
+    }
+
+    /* =========================
+       EMBED BOX
+    ========================== */
+
+/* =========================
+   EMBED BOX FIX MOBILE PRO
+========================= */
+.embed-box{
+  width: 100%;
+  height: clamp(420px, 70vh, 900px);
+  border-radius: 22px;
+
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(15,23,42,.75);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* iframe FULL RESPONSIVE */
+.embed-box iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* 📱 MOBILE OPTIMIZATION REAL */
+@media (max-width: 768px){
+
+  .section{
+    padding: 70px 0; /* menos espacio tipo app */
+  }
+
+  .embed-box{
+    height: calc(100vh - 220px); 
+    min-height: 420px;
+  }
+}
+
+/* 📱 VERY SMALL PHONES */
+@media (max-width: 480px){
+
+  .embed-box{
+    height: calc(100vh - 200px);
+  }
+}
+
+    /* =========================
+       FOOTER
+    ========================== */
+    .footer{
+
+      padding:
+        70px 0 30px;
+
+      background:#020617;
+
+      border-top:
+        1px solid var(--border);
+
+      text-align:center;
+
+    }
+
+    .footer-logo{
+
+      width:80px;
+      height:80px;
+
+      border-radius:50%;
+
+      object-fit:cover;
+
+      margin:auto;
+
+      border:
+        3px solid var(--primary);
+
+      box-shadow:
+        0 0 25px rgba(34,197,94,.35);
+
+    }
+
+    .footer-title{
+
+      font-family:var(--font-title);
+
+      font-size:1.8rem;
+
+      margin-top:20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+    }
+
+    .footer-text{
+
+      color:var(--text-soft);
+
+      margin-top:10px;
+
+    }
+
+    .footer-socials{
+
+      display:flex;
+      justify-content:center;
+      gap:14px;
+
+      margin-top:30px;
+
+    }
+
+    .footer-social{
+
+      width:50px;
+      height:50px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:var(--card);
+
+      border:
+        1px solid var(--border);
+
+      transition:var(--transition);
+
+      font-size:1.3rem;
+
+    }
+
+    .footer-social:hover{
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color:#000;
+
+      transform:
+        translateY(-4px);
+
+    }
+
+    /* =========================
+       PLAYER
+    ========================== */
+    .player{
+
+      position:fixed;
+      bottom:0;
+      left:0;
+
+      width:100%;
+
+      height:var(--player-height);
+
+      background:
+        rgba(2,6,23,.88);
+
+      backdrop-filter:
+        blur(14px);
+
+      border-top:
+        1px solid var(--border);
+
+      z-index:999;
+
+    }
+
+    .player-inner{
+
+      height:100%;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:20px;
+
+    }
+
+    .track{
+
+      display:flex;
+      align-items:center;
+      gap:15px;
+
+    }
+
+    .track img{
+
+      width:58px;
+      height:58px;
+
+      border-radius:14px;
+
+      object-fit:cover;
+
+      border:
+        2px solid rgba(255,255,255,.08);
+
+    }
+
+    .track-title{
+
+      font-weight:700;
+
+      font-size:.95rem;
+
+    }
+
+    .track-artist{
+
+      color:var(--text-soft);
+
+      font-size:.85rem;
+
+    }
+
+    .player-btn{
+
+      width:56px;
+      height:56px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color:#000;
+
+      font-size:1.4rem;
+
+      box-shadow:
+        0 10px 25px rgba(34,197,94,.3);
+
+      transition:var(--transition);
+
+    }
+
+    .player-btn:hover{
+
+      transform:scale(1.08);
+
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+    @media(max-width:900px){
+
+      .menu{
+        display:none;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .hero-cover{
+
+        width:210px;
+        height:210px;
+
+      }
+
+      .hero-subtitle{
+        letter-spacing:2px;
+      }
+
+      .embed-box{
+
+        height:70vh;
+        min-height:400px;
+
+      }
+
+      .player-inner{
+        justify-content:center;
+      }
+
+      .track{
+        display:none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+  <header class="navbar">
+
+    <div class="container navbar-inner">
+
+      <a href="#" class="logo">
+
+        <img
+          src="https://xatimg.com/image/v6RoQlSSzJvE.jpg"
+          alt="Conexzion"
+        >
+
+        <span>CONEXZION.CL</span>
+
+      </a>
+
+      <nav class="menu">
+
+        <a href="#inicio" class="active">
+          Inicio
+        </a>
+
+        <a href="#chat">
+          Chat
+        </a>
+
+        <a href="#foro">
+          Foro
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <section
+    class="hero"
+    id="inicio"
+  >
+
+    <div class="container hero-content">
+
+      <img
+        class="hero-cover"
+        src="https://xatimg.com/image/QTZjTTmDGhwO.gif"
+        alt="Conexzion Radio"
+      >
+
+      <h1 class="hero-title">
+
+        Positive
+        <span>Conexzion</span>
+
+      </h1>
+
+      <p class="hero-subtitle">
+        REGGAE • DANCEHALL • CULTURE
+      </p>
+
+      <div class="hero-buttons">
+
+        <button
+          class="btn btn-primary"
+          id="playBtn"
+        >
+
+          <i class="ri-play-fill"></i>
+
+          Escuchar Radio
+
+        </button>
+
+        <a
+          href="#chat"
+          class="btn btn-outline"
+        >
+
+          <i class="ri-chat-3-line"></i>
+
+          Entrar al Chat
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <main>
+
+    <!-- =========================
+         CHAT
+    ========================== -->
+    <section
+      class="section"
+      id="chat"
+    >
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <p class="section-label">
+            Comunidad
+          </p>
+
+          <h2 class="section-title">
+
+            Zona
+            <span>Chat</span>
+
+          </h2>
+
+        </div>
+
+        <div class="embed-box">
+
+          <iframe
+            src="https://conexzion.cl/codychat/codychat/"
+            title="Chat Conexzion"
+            loading="lazy"
+          ></iframe>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         FORO
+    ========================== -->
+    <section
+      class="section"
+      id="foro"
+    >
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <p class="section-label">
+            Interacción
+          </p>
+
+          <h2 class="section-title">
+
+            Zona
+            <span>Foro</span>
+
+          </h2>
+
+        </div>
+
+        <div class="embed-box">
+
+          <iframe
+            src="https://conexzion.cl/upload/index.php"
+            title="Foro Conexzion"
+            loading="lazy"
+          ></iframe>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <img
+        class="footer-logo"
+        src="https://xatimg.com/image/QTZjTTmDGhwO.gif"
+        alt="Conexzion"
+      >
+
+      <h3 class="footer-title">
+        CONEXZION.CL
+      </h3>
+
+      <p class="footer-text">
+        Radio Online Reggae & Dancehall 24/7
+      </p>
+
+      <div class="footer-socials">
+
+        <a
+          class="footer-social"
+          href="https://chat.whatsapp.com/CH2hPQLQxWL8He8lThLyzI"
+          target="_blank"
+          aria-label="WhatsApp"
+        >
+
+          <i class="ri-whatsapp-line"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- =========================
+       PLAYER
+  ========================== -->
+  <div class="player">
+
+    <div class="container player-inner">
+
+      <div class="track">
+
+        <img
+          src="https://xatimg.com/image/QTZjTTmDGhwO.gif"
+          alt="Now Playing"
+        >
+
+        <div class="track-info">
+
+          <p class="track-title">
+            CONEXZION LIVE
+          </p>
+
+          <p class="track-artist">
+            Reggae & Dancehall
+          </p>
+
+        </div>
+
+      </div>
+
+      <button
+        class="player-btn"
+        id="playerControl"
+      >
+
+        <i class="ri-play-fill"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- =========================
+       SCRIPT
+  ========================== -->
+  <script>
+
+    // =========================
+    // AUDIO STREAM
+    // =========================
+    const streamUrl =
+      'https://conexzion.net:8002/strem';
+
+    const audio =
+      new Audio(streamUrl);
+
+    audio.volume = 0.8;
+
+    let isPlaying = false;
+
+    const playBtn =
+      document.getElementById('playBtn');
+
+    const playerControl =
+      document.getElementById('playerControl');
+
+    function updateButtons(icon, text){
+
+      playBtn.innerHTML =
+        `<i class="${icon}"></i> ${text}`;
+
+      playerControl.innerHTML =
+        `<i class="${icon}"></i>`;
+
+    }
+
+    function toggleAudio(){
+
+      if(isPlaying){
+
+        audio.pause();
+
+        updateButtons(
+          'ri-play-fill',
+          'Escuchar Radio'
+        );
+
+      }else{
+
+        audio.play();
+
+        updateButtons(
+          'ri-pause-fill',
+          'Pausar Radio'
+        );
+
+      }
+
+      isPlaying = !isPlaying;
+
+    }
+
+    playBtn.addEventListener(
+      'click',
+      toggleAudio
+    );
+
+    playerControl.addEventListener(
+      'click',
+      toggleAudio
+    );
+
+  </script>
+
+</body>
+</html>
